@@ -43,7 +43,7 @@ export function Footer() {
             {/* Social */}
             <div className="flex items-center gap-3">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/best_choice_gajuwaka"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
@@ -52,7 +52,7 @@ export function Footer() {
                 <FaInstagram size={16} />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://youtube.com/@bestchoicecollections"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
@@ -61,7 +61,7 @@ export function Footer() {
                 <FaYoutube size={16} />
               </a>
               <a
-                href="https://maps.google.com"
+                href="https://www.google.com/maps/place/Best+Choice/@17.6799753,83.1967153,17z/data=!3m1!4b1!4m6!3m5!1s0x3a3969f97a076af7:0x2dd37186e6a1ee92!8m2!3d17.6799753!4d83.1992902!16s%2Fg%2F11j_8n2fnp?hl=id&entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"

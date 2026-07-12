@@ -13,7 +13,6 @@ import { ContactPage } from './pages/ContactPage';
 import { WishlistPage } from './pages/WishlistPage';
 import { SearchResultsPage } from './pages/SearchResultsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
-import { BrandsPage } from './pages/BrandsPage';
 import { AccountPage } from './pages/AccountPage';
 import { OffersPage } from './pages/OffersPage';
 
@@ -34,8 +33,6 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/wishlist" element={<WishlistPage />} />
               <Route path="/search" element={<SearchResultsPage />} />
-              <Route path="/brands" element={<BrandsPage />} />
-              <Route path="/brands/:slug" element={<CategoryDetail />} />
               <Route path="/account" element={<AccountPage />} />
               <Route path="/offers" element={<OffersPage />} />
               <Route path="*" element={<NotFoundPage />} />

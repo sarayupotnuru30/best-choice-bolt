@@ -6,7 +6,7 @@ export function AnnouncementBar() {
       <div className="container-max section-padding">
         <div className="hidden sm:flex items-center justify-between">
           <span className="font-medium">Free Delivery Above ₹999 | Shop Now &amp; Save More!</span>
-          <span className="font-semibold italic">Save Money &amp; Save Time</span>
+          <span className="font-semibold italic">Welcome to Best Choice</span>
           <a href="tel:9063821610" className="flex items-center gap-1.5 font-medium hover:opacity-80 transition-opacity">
             <Phone size={13} />
             9063821610
@@ -17,7 +17,7 @@ export function AnnouncementBar() {
           <div className="flex gap-8 animate-[marquee_20s_linear_infinite] whitespace-nowrap">
             <span>Free Delivery Above ₹999</span>
             <span>•</span>
-            <span>Save Money &amp; Save Time</span>
+            <span>Best Choice Gifts and Toys Collection</span>
             <span>•</span>
             <a href="tel:9063821610" className="flex items-center gap-1">
               <Phone size={11} /> 9063821610
@@ -25,7 +25,7 @@ export function AnnouncementBar() {
             <span>•</span>
             <span>Free Delivery Above ₹999</span>
             <span>•</span>
-            <span>Save Money &amp; Save Time</span>
+            <span>Best Choice</span>
           </div>
         </div>
       </div>

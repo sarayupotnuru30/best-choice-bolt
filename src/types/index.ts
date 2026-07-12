@@ -9,7 +9,6 @@ export interface Product {
   images: string[];
   category: string;
   categorySlug: string;
-  brand: string;
   description: string;
   specifications: Record<string, string>;
   inStock: boolean;
@@ -29,13 +28,6 @@ export interface Category {
   description?: string;
 }
 
-export interface Brand {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-}
-
 export interface CartItem {
   product: Product;
   quantity: number;
@@ -48,7 +40,6 @@ export interface WishlistItem {
 
 export interface FilterState {
   priceRange: [number, number];
-  brands: string[];
   inStockOnly: boolean;
   sortBy: 'relevance' | 'price-low' | 'price-high' | 'newest' | 'rating';
 }

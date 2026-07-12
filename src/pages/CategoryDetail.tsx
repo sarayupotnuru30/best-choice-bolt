@@ -5,7 +5,6 @@ import { SectionHeading } from '../components/common/SectionHeading';
 import { ProductCard } from '../components/common/ProductCard';
 import { categories } from '../data/categories';
 import { products } from '../data/products';
-import { brands } from '../data/brands';
 import type { FilterState, ViewMode, Product } from '../types';
 import { QuickViewModal } from '../components/common/QuickViewModal';
 import { useCart } from '../context/CartContext';
@@ -21,7 +20,6 @@ const SORT_OPTIONS = [
 
 const DEFAULT_FILTERS: FilterState = {
   priceRange: [0, 5000],
-  brands: [],
   inStockOnly: false,
   sortBy: 'relevance',
 };
@@ -31,9 +29,6 @@ function applyFilters(items: Product[], filters: FilterState): Product[] {
   result = result.filter(
     (p) => p.price >= filters.priceRange[0] && p.price <= filters.priceRange[1]
   );
-  if (filters.brands.length > 0) {
-    result = result.filter((p) => filters.brands.includes(p.brand));
-  }
   if (filters.inStockOnly) {
     result = result.filter((p) => p.inStock);
   }
@@ -69,18 +64,6 @@ export function CategoryDetail() {
     return applyFilters(items, filters);
   }, [categoryProducts, filters, searchQuery]);
 
-  const categoryBrands = useMemo(
-    () => [...new Set(categoryProducts.map((p) => p.brand))],
-    [categoryProducts]
-  );
-
-  const toggleBrand = (brand: string) => {
-    setFilters((f) => ({
-      ...f,
-      brands: f.brands.includes(brand) ? f.brands.filter((b) => b !== brand) : [...f.brands, brand],
-    }));
-  };
-
   if (!category) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -115,9 +98,6 @@ export function CategoryDetail() {
             <FilterSidebar
               filters={filters}
               setFilters={setFilters}
-              categoryBrands={categoryBrands}
-              toggleBrand={toggleBrand}
-              allBrands={brands.map((b) => b.name)}
             />
           </aside>
 
@@ -208,9 +188,6 @@ export function CategoryDetail() {
             <FilterSidebar
               filters={filters}
               setFilters={setFilters}
-              categoryBrands={categoryBrands}
-              toggleBrand={toggleBrand}
-              allBrands={brands.map((b) => b.name)}
             />
           </div>
         </div>
@@ -226,12 +203,9 @@ export function CategoryDetail() {
 interface FilterSidebarProps {
   filters: FilterState;
   setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
-  categoryBrands: string[];
-  toggleBrand: (brand: string) => void;
-  allBrands: string[];
 }
 
-function FilterSidebar({ filters, setFilters, categoryBrands, toggleBrand }: FilterSidebarProps) {
+function FilterSidebar({ filters, setFilters }: FilterSidebarProps) {
   return (
     <div className="space-y-6">
       {/* Price */}
@@ -255,26 +229,6 @@ function FilterSidebar({ filters, setFilters, categoryBrands, toggleBrand }: Fil
           </div>
         </div>
       </div>
-
-      {/* Brands */}
-      {categoryBrands.length > 0 && (
-        <div>
-          <h4 className="font-semibold text-sm text-brand-text mb-3">Brands</h4>
-          <div className="space-y-2">
-            {categoryBrands.map((brand) => (
-              <label key={brand} className="flex items-center gap-2 cursor-pointer group">
-                <input
-                  type="checkbox"
-                  checked={filters.brands.includes(brand)}
-                  onChange={() => toggleBrand(brand)}
-                  className="accent-primary"
-                />
-                <span className="text-sm text-brand-muted group-hover:text-brand-text transition-colors">{brand}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Availability */}
       <div>
@@ -311,7 +265,6 @@ function ProductListItem({ product }: { product: Product }) {
         <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
       </Link>
       <div className="flex-1 min-w-0">
-        <p className="text-xs text-primary font-medium">{product.brand}</p>
         <Link to={`/products/${product.slug}`}>
           <h3 className="font-semibold text-sm text-brand-text hover:text-primary transition-colors mt-0.5">{product.name}</h3>
         </Link>
@@ -333,4 +286,3 @@ function ProductListItem({ product }: { product: Product }) {
     </div>
   );
 }
-
