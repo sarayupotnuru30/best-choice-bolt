@@ -37,8 +37,8 @@ export function AboutPage() {
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
             <div className="rounded-2xl overflow-hidden shadow-card aspect-video bg-brand-section">
               <img
-                src="https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Best Choice store"
+                src="/images/about/about-hero.jpg"
+                alt="Best Choice store showcase"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -81,7 +81,7 @@ export function AboutPage() {
               'https://images.pexels.com/photos/3769747/pexels-photo-3769747.jpeg?auto=compress&cs=tinysrgb&w=600',
             ].map((img, i) => (
               <div key={i} className="rounded-2xl overflow-hidden shadow-card aspect-video bg-brand-section">
-                <img src={img} alt={`Store ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                <img src={img} alt={`Store variant ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
               </div>
             ))}
           </div>

@@ -29,7 +29,6 @@
     "./src/pages/ContactPage.tsx",
     "./src/pages/Home.tsx",
     "./src/pages/NotFoundPage.tsx",
-    "./src/pages/OffersPage.tsx",
     "./src/pages/ProductDetail.tsx",
     "./src/pages/SearchResultsPage.tsx",
     "./src/pages/WishlistPage.tsx",

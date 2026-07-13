@@ -14,7 +14,7 @@ import { WishlistPage } from './pages/WishlistPage';
 import { SearchResultsPage } from './pages/SearchResultsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { AccountPage } from './pages/AccountPage';
-import { OffersPage } from './pages/OffersPage';
+
 
 function App() {
   return (
@@ -34,7 +34,6 @@ function App() {
               <Route path="/wishlist" element={<WishlistPage />} />
               <Route path="/search" element={<SearchResultsPage />} />
               <Route path="/account" element={<AccountPage />} />
-              <Route path="/offers" element={<OffersPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Layout>
